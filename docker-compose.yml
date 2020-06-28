@@ -1,0 +1,17 @@
+version: '3'
+services:
+  web:
+    build: .
+    depends_on:
+      - db
+    ports:
+      - 5000:5000
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_USER: test
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_DATABSE: hello_world
+    ports:
+      - 3306:3306
